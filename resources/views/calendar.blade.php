@@ -9,91 +9,100 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>
+        <link rel="stylesheet" href="css/style.css">
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Calendar
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+        <div class="container">
+            <div id="holder" class="row" ></div>
         </div>
+
+        <script type="text/tmpl" id="tmpl">
+            @{{
+            var colCount = 37,
+                monthsCount = 12,
+                date = date || new Date(),
+                month = date.getMonth(),
+                year = date.getFullYear(),
+                first = new Date(year, month, 1),
+                last = new Date(year, month + 1, 0),
+                startingDay = first.getDay(),
+                thedate = new Date(year, month, 1 - startingDay),
+                dayclass = lastmonthcss,
+                today = new Date(),
+                startDate = first,
+                i, j, activeCell;
+            }}
+
+
+
+            <table class="calendar-table table table-condensed table-tight">
+                <thead>
+                    <tr class="c-weeks">
+                        <th class="c-name"></th>
+
+                        @{{ for (i = 0; i < colCount; i++) { }}
+
+                            <th class="c-name @{{: daycss[i % 7]}} ">
+                                @{{: days[i % 7] }}
+                            </th>
+
+                        @{{ } }}
+
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @{{ thedate = new Date(today.getFullYear(), today.getMonth(), 1); }}
+                    @{{ for (j = 0; j < monthsCount; j++) { }}
+                    <tr>
+
+                        @{{
+                            activeCell = false;
+                            offset = thedate.getDay();
+                            currentMonth = thedate.getMonth();
+                        }}
+
+                        <td class="calendar-day minw">
+                            <div>
+                                @{{: shortMonths[currentMonth]}}</br>@{{:thedate.getFullYear()}}
+                            </div>
+                        </td>
+
+                        @{{ for (i = 0; i < colCount; i++) { }}
+
+                        @{{
+                            isThisMonth = thedate.getMonth() == currentMonth;
+                            isCorrectDayOfWeek = thedate.getDay() == i % 7;
+                            activeCell = isCorrectDayOfWeek && isThisMonth;
+                        }}
+
+                        <td class="calendar-day @{{: activeCell ? thedate.toDateCssClass():'' }} @{{: activeCell ? daycss[i % 7]:'outsideDate' }} js-cal-option" data-date="@{{: activeCell ? thedate.toISOString():'' }}">
+                            <div class="date">
+                                @{{: activeCell ? thedate.getDate():'' }}
+                                @{{
+                                    if(activeCell) {
+                                        thedate.setDate(thedate.getDate() + 1);
+                                    }
+                                }}
+                            </div>
+                        </td>
+                        @{{ } }}
+                    </tr>
+                    @{{ } }}
+                </tbody>
+            </table>
+
+        </script>
+
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+
+        <script  src="js/index.js"></script>
+
     </body>
 </html>
