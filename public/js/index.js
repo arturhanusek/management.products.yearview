@@ -203,197 +203,211 @@ var data = [],
     h, 
     m;
 
+    red = '#ff4747';
+
+    var  allEvents = document.getElementById('allevent').value;
+    allEvents = JSON.parse(allEvents);
+    document.getElementById('allevent').value = allEvents;
+    var i;
+    for (var i=0; i<allEvents.length-1;i++)
+    {
+        var evt = allEvents[i].googleEvent;
+        data.push({title:evt.summary,
+            backgroundColor: red,
+            allDay: true,
+            start: new Date(evt.start.dateTime),
+            end: new Date(evt.end.dateTime)});
+    }
 
 
-  red = '#ff4747';
-  data.push(
-      {
-          start: new Date('2019-02-28 00:00:00'),
-          end: new Date('2019-02-28 00:00:00'),
-          backgroundColor: red,
-          allDay: true,
-          title: "Andalucia Day"
-      },
-      {
-          start: new Date('2019-04-18 00:00:00'),
-          end: new Date('2019-04-18 00:00:00'),
-
-          backgroundColor: red,
-          allDay: true,
-          title: "Maundy Thursday"
-      },
-      {
-          start: new Date('2019-04-19 00:00:00'),
-          end: new Date('2019-04-19 00:00:00'),
-          backgroundColor: red,
-          allDay: true,
-          title: "Good Friday"
-      },
-      {
-          start: new Date('2019-04-22 00:00:00'),
-          end: new Date('2019-04-22 00:00:00'),
-          backgroundColor: red,
-          allDay: true,
-          title: "Easter Monday"
-      },
-      {
-          start: new Date('2019-05-01 00:00:00'),
-          end: new Date('2019-05-01 00:00:00'),
-          backgroundColor: red,
-          allDay: true,
-          title: "Labour Day"
-      },
-      {
-          start: new Date('2019-08-15 00:00:00'),
-          end: new Date('2019-08-15 00:00:00'),
-          backgroundColor: red,
-          allDay: true,
-          title: "Assumption Day"},
-      {
-          start: new Date('2019-10-12 00:00:00'),
-          end: new Date('2019-10-12 00:00:00'),
-          backgroundColor: red,
-          allDay: true,
-          title: "Columbus Day"},
-      {
-          start: new Date('2019-11-01 00:00:00'),
-          end: new Date('2019-11-01 00:00:00'),
-          backgroundColor: red,
-          allDay: true,
-          title: "All Saint's Day"},
-      {
-          start: new Date('2019-12-01 00:00:00'),
-          end: new Date('2019-12-01 00:00:00'),
-          backgroundColor: red,
-          allDay: true,
-          title: "Constitution Day"
-      },
-      {
-          start: new Date('2019-12-08 00:00:00'),
-          end: new Date('2019-12-08 00:00:00'),
-          backgroundColor: red,
-          allDay: true,
-          title: "Immaculate Conveption Day"
-      },
-      {
-          start: new Date('2019-12-25 00:00:00'),
-          end: new Date('2019-12-25 00:00:00'),
-          backgroundColor: red,
-          allDay: true,
-          title: "Christmas Day"},
-      {
-          start: new Date('2019-12-26 00:00:00'),
-          end: new Date('2019-12-26 00:00:00'),
-          backgroundColor: red,
-          allDay: true,
-          title: "Boxing Day"},
-      {
-          start: new Date('2020-01-01 00:00:00'),
-          end: new Date('2020-01-01 00:00:00'),
-          backgroundColor: red,
-          allDay: true,
-          title: "New Year's Day"
-      },
-      {
-          title: "Conor Off School",
-          backgroundColor: 'lightblue',
-          allDay: true,
-          start: new Date('2019-06-22 00:00:00'),
-          end: new Date('2019-09-09 00:00:00')
-      }
-
-      );
-
-// Conor & Laura Holiday
-  data.push(
-      {
-          title: "Conor Motril",
-          backgroundColor: '#6ef441',
-          allDay: true,
-          start: new Date('2019-02-22 00:00:00'),
-          end: new Date('2019-03-03 00:00:00')
-      },
-      {
-          title: "Conor Motril",
-          backgroundColor: '#6ef441',
-          allDay: true,
-          start: new Date('2019-04-10 00:00:00'),
-          end: new Date('2019-04-22 00:00:00')
-      },
-      {
-          title: "Conor Motril",
-          backgroundColor: '#6ef441',
-          allDay: true,
-          start: new Date('2019-07-22 00:00:00'),
-          end: new Date('2019-08-02 00:00:00')
-      },
-      {
-          title: "Conor Motril Alone",
-          backgroundColor: '#6ef441',
-          allDay: true,
-          start: new Date('2019-08-03 00:00:00'),
-          end: new Date('2019-08-11 00:00:00')
-      }
-  );
-
-
-// Conor & Artur
-
-   data.push(
-       {
-           title: "Karl",
-           backgroundColor: '#FFC300',
-           allDay: true,
-           start: new Date('2019-03-02 00:00:00'),
-           end: new Date('2019-03-11 00:00:00')
-       },
-       {
-           title: "Possibly Grzegorz & Daria ES",
-           backgroundColor: '#FFC300',
-           allDay: true,
-           start: new Date('2019-03-27 00:00:00'),
-           end: new Date('2019-04-02 00:00:00')
-       },
-       {
-           title: "Symphony",
-           backgroundColor: '#FFC300',
-           allDay: true,
-           start: new Date('2019-03-23 00:00:00'),
-           end: new Date('2019-03-23 00:00:00')
-       },
-       {
-           title: "Conor PL",
-           backgroundColor: '#FFC300', allDay: true,
-           start: new Date('2019-06-22 00:00:00'),
-           end: new Date('2019-07-13 00:00:00')
-       }
-   );
-
-
-// Your IT Solutions
-  data.push(
-      {
-          title: "RDS",
-          backgroundColor: '#BB8FCE',
-          allDay: true,
-          start: new Date('2019-04-05 00:00:00'),
-          end: new Date('2019-04-07 00:00:00')
-      },
-      {
-          title: "MG Tralee",
-          backgroundColor: '#BB8FCE',
-          allDay: true,
-          start: new Date('2019-05-06 00:00:00'),
-          end: new Date('2019-05-10 00:00:00')
-      },
-      {
-          title: "RDS",
-          backgroundColor: '#BB8FCE',
-          allDay: true,
-          start: new Date('2019-10-04 00:00:00'),
-          end: new Date('2019-10-06 00:00:00')
-      }
-  );
+//   data.push(
+//       {
+//           start: new Date('2019-02-28 00:00:00'),
+//           end: new Date('2019-02-28 00:00:00'),
+//           backgroundColor: red,
+//           allDay: true,
+//           title: "Andalucia Day"
+//       },
+//       {
+//           start: new Date('2019-04-18 00:00:00'),
+//           end: new Date('2019-04-18 00:00:00'),
+//
+//           backgroundColor: red,
+//           allDay: true,
+//           title: "Maundy Thursday"
+//       },
+//       {
+//           start: new Date('2019-04-19 00:00:00'),
+//           end: new Date('2019-04-19 00:00:00'),
+//           backgroundColor: red,
+//           allDay: true,
+//           title: "Good Friday"
+//       },
+//       {
+//           start: new Date('2019-04-22 00:00:00'),
+//           end: new Date('2019-04-22 00:00:00'),
+//           backgroundColor: red,
+//           allDay: true,
+//           title: "Easter Monday"
+//       },
+//       {
+//           start: new Date('2019-05-01 00:00:00'),
+//           end: new Date('2019-05-01 00:00:00'),
+//           backgroundColor: red,
+//           allDay: true,
+//           title: "Labour Day"
+//       },
+//       {
+//           start: new Date('2019-08-15 00:00:00'),
+//           end: new Date('2019-08-15 00:00:00'),
+//           backgroundColor: red,
+//           allDay: true,
+//           title: "Assumption Day"},
+//       {
+//           start: new Date('2019-10-12 00:00:00'),
+//           end: new Date('2019-10-12 00:00:00'),
+//           backgroundColor: red,
+//           allDay: true,
+//           title: "Columbus Day"},
+//       {
+//           start: new Date('2019-11-01 00:00:00'),
+//           end: new Date('2019-11-01 00:00:00'),
+//           backgroundColor: red,
+//           allDay: true,
+//           title: "All Saint's Day"},
+//       {
+//           start: new Date('2019-12-01 00:00:00'),
+//           end: new Date('2019-12-01 00:00:00'),
+//           backgroundColor: red,
+//           allDay: true,
+//           title: "Constitution Day"
+//       },
+//       {
+//           start: new Date('2019-12-08 00:00:00'),
+//           end: new Date('2019-12-08 00:00:00'),
+//           backgroundColor: red,
+//           allDay: true,
+//           title: "Immaculate Conveption Day"
+//       },
+//       {
+//           start: new Date('2019-12-25 00:00:00'),
+//           end: new Date('2019-12-25 00:00:00'),
+//           backgroundColor: red,
+//           allDay: true,
+//           title: "Christmas Day"},
+//       {
+//           start: new Date('2019-12-26 00:00:00'),
+//           end: new Date('2019-12-26 00:00:00'),
+//           backgroundColor: red,
+//           allDay: true,
+//           title: "Boxing Day"},
+//       {
+//           start: new Date('2020-01-01 00:00:00'),
+//           end: new Date('2020-01-01 00:00:00'),
+//           backgroundColor: red,
+//           allDay: true,
+//           title: "New Year's Day"
+//       },
+//       {
+//           title: "Conor Off School",
+//           backgroundColor: 'lightblue',
+//           allDay: true,
+//           start: new Date('2019-06-22 00:00:00'),
+//           end: new Date('2019-09-09 00:00:00')
+//       }
+//
+//       );
+//
+// // Conor & Laura Holiday
+//   data.push(
+//       {
+//           title: "Conor Motril",
+//           backgroundColor: '#6ef441',
+//           allDay: true,
+//           start: new Date('2019-02-22 00:00:00'),
+//           end: new Date('2019-03-03 00:00:00')
+//       },
+//       {
+//           title: "Conor Motril",
+//           backgroundColor: '#6ef441',
+//           allDay: true,
+//           start: new Date('2019-04-10 00:00:00'),
+//           end: new Date('2019-04-22 00:00:00')
+//       },
+//       {
+//           title: "Conor Motril",
+//           backgroundColor: '#6ef441',
+//           allDay: true,
+//           start: new Date('2019-07-22 00:00:00'),
+//           end: new Date('2019-08-02 00:00:00')
+//       },
+//       {
+//           title: "Conor Motril Alone",
+//           backgroundColor: '#6ef441',
+//           allDay: true,
+//           start: new Date('2019-08-03 00:00:00'),
+//           end: new Date('2019-08-11 00:00:00')
+//       }
+//   );
+//
+//
+// // Conor & Artur
+//
+//    data.push(
+//        {
+//            title: "Karl",
+//            backgroundColor: '#FFC300',
+//            allDay: true,
+//            start: new Date('2019-03-02 00:00:00'),
+//            end: new Date('2019-03-11 00:00:00')
+//        },
+//        {
+//            title: "Possibly Grzegorz & Daria ES",
+//            backgroundColor: '#FFC300',
+//            allDay: true,
+//            start: new Date('2019-03-27 00:00:00'),
+//            end: new Date('2019-04-02 00:00:00')
+//        },
+//        {
+//            title: "Symphony",
+//            backgroundColor: '#FFC300',
+//            allDay: true,
+//            start: new Date('2019-03-23 00:00:00'),
+//            end: new Date('2019-03-23 00:00:00')
+//        },
+//        {
+//            title: "Conor PL",
+//            backgroundColor: '#FFC300', allDay: true,
+//            start: new Date('2019-06-22 00:00:00'),
+//            end: new Date('2019-07-13 00:00:00')
+//        }
+//    );
+//
+//
+// // Your IT Solutions
+//   data.push(
+//       {
+//           title: "RDS",
+//           backgroundColor: '#BB8FCE',
+//           allDay: true,
+//           start: new Date('2019-04-05 00:00:00'),
+//           end: new Date('2019-04-07 00:00:00')
+//       },
+//       {
+//           title: "MG Tralee",
+//           backgroundColor: '#BB8FCE',
+//           allDay: true,
+//           start: new Date('2019-05-06 00:00:00'),
+//           end: new Date('2019-05-10 00:00:00')
+//       },
+//       {
+//           title: "RDS",
+//           backgroundColor: '#BB8FCE',
+//           allDay: true,
+//           start: new Date('2019-10-04 00:00:00'),
+//           end: new Date('2019-10-06 00:00:00')
+//       }
+//   );
 
   data.sort(function(a,b) { return (+a.start) - (+b.start); });
   

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "sinuous-canto-231816",
+  "private_key_id": "d2dc9cdd25a78fb5796bd2d82dd943839f93d1e9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQD0g2sKjmOtLE5k\nCuMG7NUfVqMnLklFamCMWU1HglJ4rWhRoTltjaFjY6GNBBqYXmNZCl+cPHCFYykh\npHcLdhV1hcFm+MfrHl+BXyh0y35Q/3TSzF8MX3qDFVVdV0osBEneZsocreb2xugx\ny4hK1ZZMVhPFXNWeQpdGWnmIqGmswWKWfeo0hlOqmbB3ripv7j3Qn7daiT7s4EHl\n79FUfiz6T7sE4Kteui8X5Mq4oriehmdzHZhSrtlxIoDVFzf6st82QzJON1KnMPoK\nuWlmPmPfSux/dy+/9YspbUEW3/vymnBFa/FBNrjTrGQyN03k+wBlzbAbmBWR8hRB\nB4YSTrUfAgMBAAECggEABHpUcoJxc6sIQHxgJ5dP8kP6HVSTePCRL62by0x142N7\nMcuCRSEleUl9nIFPvCycvlu0E1g0A1O+kOQoxFsqp3CGPmZRJ8G/PZvj6y4MdFuv\nsWowVdMSmxkmUanjxnL821Rsk4iuKyTKlpoQnYMHcc+kJKaMYidicW8xiWQnYBRQ\nmVhjDMkX8ck5X8Zb/sJ+ija3/1CC8YXA2TIfKWcURKIOW9KfpbxRCbBZtNwPRHA0\nyvS4jrKt6Sf4KaYPsTS6kdwpsIMuJW3mXa7EdnyRfyFbfo1v8ON+/N98z4sFpCHm\nlGUO453iNRasnRycikmwFNaeuPxYSqFRx55ZzoIRuQKBgQD+9aYtdxU55g4CoM9m\nS/9lffpg2JwJhYrQGs2QT3sZqvZhpNsV/zq6qCLyiIHpkAy9ryL2k9JYg8FSvJgg\niyGf1/nCjClLwkI8nr9Dz+Fbh95C9eYeRR6oTBBxyO21+S6WGNTqxmRnulaz2gS7\no/AZ4xZ5joaCpIplBTIDKz5L3QKBgQD1gtsmq2irQzVjJIZW3SRGs+Wqii3pKe0Q\nEkDvbY/WPX2nd8l2EdKPseHMJ+bvdPhw0rcI71t/z4A1+93kyNluw/V+SfQI5bDM\nnMBP5OSbtZAFksDIzcL9k4C2Fg4tEiIyrCJKdo+4V004bnXgg19Jn9+I4f1LTqqd\ngCWT9C/jKwKBgQDICD76yMU0idRQJ47Q+atFG5PHS+sQZV/FamIBaPpx5vorHcZt\n+bNAIw5YLtWOQ+BbKf9KaivMGoMgwKqyTbZxzGc+Re1YbO6+1OXG9GAhCfZNntOO\nyDgHXrZAL56g+QGd7ZmPIVxBLac8sD6qYTLNfKdzc2kBMssJ+wuEBPd5WQKBgHuJ\nYd7eZ2euBOIjUdnJouRUx1798sYdi6UHmlcf6T2jaWPoOZ5Ir4wQtQ62kVSypgSX\ncvRzBLaWYexIFUp26jn7Lr9iVQJZGZKL2ZUaFxJm1NaJFqq0JsbT/vMgu/df5Ydb\n6FFRwVW/0CJyKqxTTpJMeP12wa6wIdfo0H/XYnVLAoGAacANk0NlViFv14gehUkH\nyG50sIymdMdMvFgaVdYgTAk0fZ77dWqagr/wy1SuMTrx/35fjT7QYD2AK+5rLRII\n1wP54xNqjWRMmqG6kOEq4IdsZjq+IsbfbokQG3TRYxZYfPqpDdmU7M0aSZ1mwAIf\nEXC7PrbLCPNIIrRJEHOk04s=\n-----END PRIVATE KEY-----\n",
+  "client_email": "yearview-calendar@sinuous-canto-231816.iam.gserviceaccount.com",
+  "client_id": "116116758824136767512",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/yearview-calendar%40sinuous-canto-231816.iam.gserviceaccount.com"
+}

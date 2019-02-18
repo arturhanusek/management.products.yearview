@@ -11,7 +11,9 @@
 |
 */
 use Spatie\GoogleCalendar\Event;
+use Carbon\Carbon;
 
 Route::get('/', function () {
-    return view('calendar');
+    $events = Event::get();
+    return view('calendar', compact('events'));
 });

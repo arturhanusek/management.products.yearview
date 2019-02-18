@@ -19,7 +19,7 @@
         <div class="container">
             <div id="holder" class="row" ></div>
         </div>
-
+<input type="hidden" id="allevent" value="{{json_encode($events)}}">
         <script type="text/tmpl" id="tmpl">
             @{{
             var colCount = 37,
