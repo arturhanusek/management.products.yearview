@@ -203,20 +203,36 @@ var data = [],
     h, 
     m;
 
-    red = '#ff4747';
+    red = "agua";
 
     var  allEvents = document.getElementById('allevent').value;
     allEvents = JSON.parse(allEvents);
-    document.getElementById('allevent').value = allEvents;
-    var i;
-    for (var i=0; i<allEvents.length-1;i++)
+
+    for (var index=0; allEvents.length > index; index++)
     {
-        var evt = allEvents[i].googleEvent;
-        data.push({title:evt.summary,
-            backgroundColor: red,
-            allDay: true,
-            start: new Date(evt.start.dateTime),
-            end: new Date(evt.end.dateTime)});
+        var evt = allEvents[index].googleEvent;
+
+        // we only display full day events
+        if(evt.start.date)
+        {
+            data.push(
+                {
+                    start: new Date(evt.start.date),
+                    end: new Date(evt.end.date),
+                    backgroundColor: red,
+                    allDay: true,
+                    title: evt.summary
+                }
+            )
+
+        }
+
+
+        // data.push({title:evt.summarry,
+        //     backgroundColor: red,
+        //     allDay: true,
+        //     start: new Date(evt.start.dateTime),
+        //     end: new Date(evt.end.dateTime)});
     }
 
 
