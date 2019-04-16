@@ -210,29 +210,34 @@ var data = [],
 
     for (var index=0; allEvents.length > index; index++)
     {
+
         var evt = allEvents[index].googleEvent;
 
         // we only display full day events
         if(evt.start.date)
         {
+
+            // Google calendar puts end date day after the event finish at hour 00:00
+            // Example
+            // 1 day event starting & finish on 19th March would have
+            // start.date = 19/03/2019
+            // end.date = 20/03/2019
+            var endDate = new Date(evt.end.date);
+            endDate.setDate(endDate.getDate()-1);
+
             data.push(
                 {
                     start: new Date(evt.start.date),
-                    end: new Date(evt.end.date),
+                    end: endDate,
                     backgroundColor: red,
                     allDay: true,
                     title: evt.summary
                 }
+
             )
 
         }
 
-
-        // data.push({title:evt.summarry,
-        //     backgroundColor: red,
-        //     allDay: true,
-        //     start: new Date(evt.start.dateTime),
-        //     end: new Date(evt.end.dateTime)});
     }
 
 

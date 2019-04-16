@@ -12,8 +12,20 @@
 */
 use Spatie\GoogleCalendar\Event;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Collection;
 
 Route::get('/', function () {
-    $events = Event::get();
+
+    $calendar_ids = explode(',', Input::get('cid', 'en.irish%23holiday@group.v.calendar.google.com'));
+
+    $events = new Collection;
+
+    foreach ($calendar_ids as $calendar_id)
+    {
+        $events = $events->merge( Event::get(null,null,[], $calendar_id) );
+    }
+
     return view('calendar', compact('events'));
+
 });
