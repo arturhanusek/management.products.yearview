@@ -17,13 +17,28 @@ use Illuminate\Support\Collection;
 
 Route::get('/', function () {
 
-    $calendar_ids = explode(',', Input::get('cid', 'en.irish%23holiday@group.v.calendar.google.com'));
+    $calendar_ids = explode(',', Input::get('cid', 'en.irish#holiday@group.v.calendar.google.com'));
 
-    $events = new Collection;
+    $colors = ['#FF4141', '#00FF00', '#F4A460', '#F4A460', '#F4A460', '#F4A460', '#F4A460'];
+
+    $events = [];
 
     foreach ($calendar_ids as $calendar_id)
     {
-        $events = $events->merge( Event::get(null,null,[], $calendar_id) );
+        $calendar_events = Event::get(null,null,[], $calendar_id);
+
+        foreach ($calendar_events as $calendar_event) {
+
+            $events[] =[
+                'title' => $calendar_event->googleEvent->summary,
+                'start_date' =>  $calendar_event->googleEvent->start->date,
+                'end_date' =>  $calendar_event->googleEvent->end->date,
+                'color' =>  $colors[0]
+            ];
+
+        }
+
+        array_shift($colors);
     }
 
     return view('calendar', compact('events'));
