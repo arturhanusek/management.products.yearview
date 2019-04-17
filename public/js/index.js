@@ -211,10 +211,10 @@ var data = [],
     for (var index=0; allEvents.length > index; index++)
     {
 
-        var evt = allEvents[index].googleEvent;
+        var evt = allEvents[index];
 
         // we only display full day events
-        if(evt.start.date)
+        if(evt.start_date)
         {
 
             // Google calendar puts end date day after the event finish at hour 00:00
@@ -222,16 +222,16 @@ var data = [],
             // 1 day event starting & finish on 19th March would have
             // start.date = 19/03/2019
             // end.date = 20/03/2019
-            var endDate = new Date(evt.end.date);
+            var endDate = new Date(evt.end_date);
             endDate.setDate(endDate.getDate()-1);
 
             data.push(
                 {
-                    start: new Date(evt.start.date),
+                    start: new Date(evt.start_date),
                     end: endDate,
-                    backgroundColor: red,
+                    backgroundColor: evt.color,
                     allDay: true,
-                    title: evt.summary
+                    title: evt.title
                 }
 
             )
