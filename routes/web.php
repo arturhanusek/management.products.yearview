@@ -19,7 +19,7 @@ Route::get('/', function () {
 
     $calendar_ids = explode(',', Input::get('cid', 'en.irish#holiday@group.v.calendar.google.com'));
 
-    $colors = ['#FF4141', '#00FF00', '#F4A460', '#F4A460', '#F4A460', '#F4A460', '#F4A460'];
+    $colors = explode(',', Input::get('colors', '#FF4141,#00FF00,#F4A460,#F4A460,#F4A460,#F4A460,#F4A460'));
 
     $events = [];
 
